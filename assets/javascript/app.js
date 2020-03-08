@@ -1,10 +1,9 @@
 //declare global variables, set up trivia questions and store in trivia object
-    var timer = 120;
-    var timerOn = false;
+    var timer;
+    var timerOn;
     var correct;
     var incorrect;
     var unanswered;
-    var userGuess;
     var trivia = {
         questions:{
             q1: "What Pokemon does Pikachu evolve into?",
@@ -37,42 +36,14 @@ $('#start').on('click', function(){
     // timer = 120;
     // timerOn = false;
     $('#start').hide();
-    // $('.game').show();
+    $('.game').show();
     // clearInterval(timer);
-    timerOn = false;
 });
 
-function startGame{
-    timerOn = true;
-}
-
-//display questions with options in radio button
 function showQuestions(questions, options);{
-    var userGuess = [];
-    var answers;
-    for (var i=0; i<questions.length; i++){
-        answers = [];
 
-
-//compare userGuess with answers
-function checkAnswers(){
-    var userGuess = '';
-    var correct = 0
-if ($('input[type="radio"][name=q1]: checked').val()==)
 }
 
+function showResults(correct, incorrect, unanswered){
 
-//show results
-function results(){
-    correct;
-    incorrect;
-    unanswered;
-}
-
-//timer
-function timer(){
-    if (number === 0){
-        stop();
-        results();
-    }
 }

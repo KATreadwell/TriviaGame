@@ -5,7 +5,7 @@
 body{
     font-family: 'Pokemon';
     font-weight: bold;
-    background-image: url("../assets/images/4qd63TU-free-pokemon-wallpaper.jpg");
+    background-image: url("../images/4qd63TU-free-pokemon-wallpaper.jpg");
     color: black;
     text-align: center;
 }
@@ -16,9 +16,6 @@ body{
     padding: 10px;
 }
 
-.question{
-    display: inline-block;
-}
 
 
 
