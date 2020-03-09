@@ -9,12 +9,15 @@
     <title>Pokemon Trivia Game</title>
 </head>
 <body>
-    <!-- <div class = "start">
+    <!-- display Start menu -->
+    <div class = "start">
         <h1>So you want to be a Pokemon trainer?</h1>
         <h2>Answer these questions to show that you have the knowledge to capture them all!</h2>
         <input type = "button" id="start" value="I wanna be the best">
     </div>
-    <form name = "game" action>
+    
+    <!-- display Trivia Questions/Options -->
+    <!-- <form name = "game" action>
         <p>What Pokemon does Pikachu evolve into?</p>
         <p><input type="radio" id="question" name="q1" value="a">Joleton</p>
         <p><input type="radio" id="question" name="q1" value="b">Electivire</p>
@@ -22,8 +25,14 @@
         <p><input type="radio" id="question" name="q1" value="d">Raichu</p>
     </form> -->
 
-    <div id="game"></div>
+    <div class = "game">
+        <div>Time left  <span id="timer"></span> seconds
+        </div>
+        <div class="trivia">
+        </div>
+    </div>
 
+    <!-- display results: correct, incorrect, unanswered -->
     <!-- <div id = "results"></div> -->
 
 

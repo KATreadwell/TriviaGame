@@ -29,21 +29,46 @@
     }
 
 //landing page with Start button to initialize game
-$('#start').on('click', function(){
-    // correct = 0;
-    // incorrect = 0;
-    // unanswered = 0;
-    // timer = 120;
-    // timerOn = false;
-    $('#start').hide();
-    $('.game').show();
-    // clearInterval(timer);
+$(document).ready(function(){
+    correct = 0;
+    incorrect = 0;
+    unanswered = 0;
+    timer = 60;
+    timerOn = false;
+    $('.start').show();
+    $('.game').hide();
 });
 
-function showQuestions(questions, options);{
+$('#start').on('click', function(){
+    timerOn = true;
+    $('.start').hide();
+    $('.game').show();
+});
 
-}
 
-function showResults(correct, incorrect, unanswered){
+// function showQuestions(questions, options);{
+//     var userGuess = [];
+//     var answers;
+//     for (var i=0; i<questions.length; i++){
+//         answers = [];
 
-}
+
+// function checkAnswers(){
+//     var userGuess = '';
+//     var correct = 0
+// if ($('input[type="radio"][name=q1]: checked').val()==)
+// }
+
+
+// function results(){
+//     correct;
+//     incorrect;
+//     unanswered;
+// }
+
+// function timer(){
+//     if (number === 0){
+//         stop();
+//         results();
+//     }
+// }
