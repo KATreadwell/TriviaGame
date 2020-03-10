@@ -1,9 +1,10 @@
 //declare global variables, set up trivia questions and store in trivia object
-    var timer;
-    var timerOn;
-    var correct;
-    var incorrect;
-    var unanswered;
+    var timer = 5;
+    var timerOn = false;
+    var intervalId;
+    var correct = 0;
+    var incorrect = 0;
+    var unanswered = 0;
     var trivia = {
         questions:{
             q1: "What Pokemon does Pikachu evolve into?",
@@ -28,47 +29,62 @@
         },
     }
 
+
+
+
 //landing page with Start button to initialize game
 $(document).ready(function(){
-    correct = 0;
-    incorrect = 0;
-    unanswered = 0;
-    timer = 60;
-    timerOn = false;
     $('.start').show();
     $('.game').hide();
 });
 
 $('#start').on('click', function(){
-    timerOn = true;
+    showQuestions(); //add showQuestions function and then add startTimer inside of that function
     $('.start').hide();
     $('.game').show();
 });
 
+function startTimer(){
+    if (!timerOn){
+        intervalId = setInterval(function(){
+            if (timer>0){
+                timer--;
+                $('#timer').text(timer);
+            }
+            else {
+                results();
+            }
+        },1000)
+        timerOn = true;
+    };
+}
 
-// function showQuestions(questions, options);{
-//     var userGuess = [];
-//     var answers;
-//     for (var i=0; i<questions.length; i++){
-//         answers = [];
+function results(){
+    clearInterval(intervalId);
+    //display correct, incorrect, unanswered
+    //need to track values
+}
+
+function showQuestions(){
+    for (var triviaKey in trivia.questions){
+        console.log(trivia.questions[triviaKey]);
+        var question = $(`<div><p>${trivia.questions[triviaKey]}</p>`);
+        var options = trivia.options[triviaKey];  
+        for (var i = 0; i < options.length; i++){
+            var choice = options[i];  //put attribute within choice to check if correct and tally
+            var answer = trivia.answers[triviaKey];
+            if (choice === answer){
+                $(question).append(`<p><input type="radio" class="answer" value=${choice} name="correct">${choice}</p>`)
+            }
+            else {
+                $(question).append(`<p><input type="radio" class="answer" value=${choice} name="incorrect">${choice}</p>`)
+            }//can grab name attribute off of choice selected and if correct increment correct and incorrect and increment incorrect
+        }
+            $('.trivia').append(question);
+    }
+
+    startTimer();
+}
 
 
-// function checkAnswers(){
-//     var userGuess = '';
-//     var correct = 0
-// if ($('input[type="radio"][name=q1]: checked').val()==)
-// }
 
-
-// function results(){
-//     correct;
-//     incorrect;
-//     unanswered;
-// }
-
-// function timer(){
-//     if (number === 0){
-//         stop();
-//         results();
-//     }
-// }
