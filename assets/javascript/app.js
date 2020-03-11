@@ -1,5 +1,5 @@
 //declare global variables, set up trivia questions and store in trivia object
-    var timer = 5;
+    var timer = 10;
     var timerOn = false;
     var intervalId;
     var correct = 0;
@@ -30,16 +30,15 @@
     }
 
 
-
-
 //landing page with Start button to initialize game
 $(document).ready(function(){
     $('.start').show();
     $('.game').hide();
 });
 
+//what happens after you click start
 $('#start').on('click', function(){
-    showQuestions(); //add showQuestions function and then add startTimer inside of that function
+    showQuestions(); 
     $('.start').hide();
     $('.game').show();
 });
@@ -59,32 +58,31 @@ function startTimer(){
     };
 }
 
-function results(){
-    clearInterval(intervalId);
-    //display correct, incorrect, unanswered
-    //need to track values
-}
-
 function showQuestions(){
     for (var triviaKey in trivia.questions){
-        console.log(trivia.questions[triviaKey]);
         var question = $(`<div><p>${trivia.questions[triviaKey]}</p>`);
         var options = trivia.options[triviaKey];  
         for (var i = 0; i < options.length; i++){
-            var choice = options[i];  //put attribute within choice to check if correct and tally
+            var choice = options[i];  
             var answer = trivia.answers[triviaKey];
-            if (choice === answer){
-                $(question).append(`<p><input type="radio" class="answer" value=${choice} name="correct">${choice}</p>`)
-            }
-            else {
-                $(question).append(`<p><input type="radio" class="answer" value=${choice} name="incorrect">${choice}</p>`)
-            }//can grab name attribute off of choice selected and if correct increment correct and incorrect and increment incorrect
+            $(question).append(`<p><input type="radio" class="answer" value="${choice}" name="${triviaKey}">${choice}</p>`)
         }
             $('.trivia').append(question);
     }
-
     startTimer();
 }
 
-
+//as with above, I don't want to handle display in html, would like to do in javascript
+function results(){
+    if (choice === answer){     
+        correct++;
+    }
+    else {
+        incorrect++;
+    }
+    //loop over selected input and then compare if it is correct, increment accordingly
+    clearInterval(intervalId);
+    $(correct).append("<p>Correct: " + "</p>");
+    $(incorrect).append("<p>Incorrect: " + "</p>");
+}
 
