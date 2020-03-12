@@ -64,7 +64,6 @@ function showQuestions(){
         var options = trivia.options[triviaKey];  
         for (var i = 0; i < options.length; i++){
             var choice = options[i];  
-            var answer = trivia.answers[triviaKey];
             $(question).append(`<p><input type="radio" class="answer" value="${choice}" name="${triviaKey}">${choice}</p>`)
         }
             $('.trivia').append(question);
@@ -72,17 +71,27 @@ function showQuestions(){
     startTimer();
 }
 
-//as with above, I don't want to handle display in html, would like to do in javascript
-function results(){
-    if (choice === answer){     
+// loop over selected input and then compare if it is correct, increment accordingly
+function checkQuestions(){
+    var answer = trivia.answers[triviaKey];
+    for (var i = 0; i < answers.length; i++){
+        if (choice === trivia.answers[triviaKey]){     
         correct++;
     }
-    else {
+    else if (choice != trivia.answers[triviaKey]){
         incorrect++;
     }
-    //loop over selected input and then compare if it is correct, increment accordingly
+    else {
+        unanswered++;
+    }
+    }
+}
+
+function results(){
     clearInterval(intervalId);
-    $(correct).append("<p>Correct: " + "</p>");
-    $(incorrect).append("<p>Incorrect: " + "</p>");
+    $('.game').hide();
+    $('.results').append("<p>Pika Pika: " + correct + "</p>");
+    $('.results').append("<p>Train Harder: " + incorrect + "</p>");
+    $('.results').append("<p>Are you JigglyPuff?: " + unanswered + "</p>");
 }
 
