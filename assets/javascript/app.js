@@ -89,22 +89,22 @@ startTimer();
 // loop over selected input and then compare if it is correct, increment accordingly
 function checkQuestions(){
     for (var triviaKey in trivia.answers){
-        var answers = $(`<div><p>${trivia.answers[triviaKey]}</p>`);
-        var choices = $(`<div><p>${trivia.choices[triviaKey]}</p>`);
-        console.log(trivia.answers[triviaKey]);
-        console.log(trivia.choices[triviaKey]);
+        // var answers = $(`<div><p>${trivia.answers[triviaKey]}</p>`);
+        // var choices = $(`<div><p>${trivia.choices[triviaKey]}</p>`);
+        // console.log(trivia.answers[triviaKey]);
+        // console.log(trivia.choices[triviaKey]);
 
         if (trivia.answers[triviaKey] === trivia.choices[triviaKey]){
             console.log("user got " + triviaKey + 'right');
             correct++;
-        } else if (trivia.choices[triviaKey] === 0) {
+        } else if (trivia.choices[triviaKey] === 0){
             console.log("user got " + triviaKey + 'wrong');
-            incorrect++;
-        }
-        else {
             unanswered++;
-            console.log ("user didn't answer");
         }
+        else {incorrect++;
+        }
+            console.log ("user didn't answer");
+    
 
         // }
         // if (choices === answers){     
