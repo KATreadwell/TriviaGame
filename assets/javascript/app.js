@@ -50,6 +50,8 @@ $('.start').hide();
 $('.game').show();
 });
 
+
+
 function startTimer(){
 if (!timerOn){
     intervalId = setInterval(function(){
@@ -75,6 +77,12 @@ for (var triviaKey in trivia.questions){
     }
         $('.trivia').append(question);
 }
+$('.answer').on('click', function(){
+    $('.answer').attr('checked', false);
+    $(this).attr('checked', true);  
+    trivia.choices[$(this).attr('name')] = $(this).attr('value');
+    console.log(trivia.choices);
+})
 startTimer();
 }
 
@@ -83,17 +91,32 @@ function checkQuestions(){
     for (var triviaKey in trivia.answers){
         var answers = $(`<div><p>${trivia.answers[triviaKey]}</p>`);
         var choices = $(`<div><p>${trivia.choices[triviaKey]}</p>`);
-        for (var i = 0; i < answers.length; i++){
-        if (choices === answers){     
-        correct++;
-        }
-        else if (choices != answers){
-        incorrect++;
+        console.log(trivia.answers[triviaKey]);
+        console.log(trivia.choices[triviaKey]);
+
+        if (trivia.answers[triviaKey] === trivia.choices[triviaKey]){
+            console.log("user got " + triviaKey + 'right');
+            correct++;
+        } else if (trivia.choices[triviaKey] === 0) {
+            console.log("user got " + triviaKey + 'wrong');
+            incorrect++;
         }
         else {
-        unanswered++;
+            unanswered++;
+            console.log ("user didn't answer");
         }
-        }
+
+        // }
+        // if (choices === answers){     
+        // correct++;
+        // }
+        // else if (choices != answers){
+        // incorrect++;
+        // }
+        // else {
+        // unanswered++;
+        // }
+        // }
     }
 }
 
