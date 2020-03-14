@@ -15,22 +15,46 @@ body{
 #start{
     background-color: green;
     color: black;
-    border: 20px;
-    padding: 10px;
+    padding: 20px;
     font-weight: bold;
+    margin: 30px;
 }
 
-/* .start{
-    border: 20px;
+.start{
+    position: absolute;
+    top: 200px;
+    right: 40px;
+    font-size: 20px;
 }
 
 .game{
-    border: 20px;
+    margin: 20px;
+}
+
+.trivia{
+    margin: 20px;
+    font-size: 20px;
 }
 
 .results{
-    border: 20px;
-} */
+    position: absolute;
+    font-size: 24px;
+    left: 1000px;
+}
+
+.questions{
+    display: flex;
+    flex-direction: row;
+    break-before: always;
+}
+
+#retry{
+    background-color: green;
+    color: black;
+    padding: 20px;
+    font-weight: bold;
+    margin: 30px;
+}
 
 
 
