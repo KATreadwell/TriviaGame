@@ -103,7 +103,6 @@ $('.answer').on('click', function(){
     $('.answer').attr('checked', false);
     $(this).attr('checked', true);  
     trivia.choices[$(this).attr('name')] = $(this).attr('value');
-    console.log(trivia.choices);
 })
 startTimer();
 }
@@ -112,15 +111,12 @@ startTimer();
 function checkQuestions(){
     for (var triviaKey in trivia.answers){
         if (trivia.answers[triviaKey] === trivia.choices[triviaKey]){
-            console.log("user got " + triviaKey + 'right');
             correct++;
         } else if (trivia.choices[triviaKey] === 0){
-            console.log("user got " + triviaKey + 'unanswered');
             unanswered++;
         }
         else {incorrect++;
         }
-            console.log ("user didn't answer");
     }
 }
 
