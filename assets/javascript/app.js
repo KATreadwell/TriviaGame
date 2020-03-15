@@ -1,5 +1,5 @@
 //declare global variables, set up trivia questions and store in trivia object
-var timer = 10;
+var timer = 60;
 var timerOn = false;
 var intervalId;
 var correct = 0;
@@ -95,7 +95,7 @@ for (var triviaKey in trivia.questions){
     var options = trivia.options[triviaKey];  
     for (var i = 0; i < options.length; i++){
         var choice = options[i];  
-        $(question).append(`<input type="radio" class="answer" value="${choice}" name="${triviaKey}">${choice}`)
+        $(question).append(`<p><input type="radio" class="answer" value="${choice}" name="${triviaKey}">${choice}</p>`)
     }
         $('.trivia').append(question);
 }
