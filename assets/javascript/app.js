@@ -1,5 +1,5 @@
 //declare global variables, set up trivia questions and store in trivia object
-var timer = 90;
+var timer = 60;
 var timerOn = false;
 var intervalId;
 var correct = 0;
@@ -70,8 +70,18 @@ showQuestions();
 $('.start').hide();
 $('.game').show();
 $('#retry').hide();
+playAudio();
 });
 
+function playAudio(){
+    var sound = document.getElementById("audio");
+    sound.play();
+}
+
+function pauseAudio(){
+    var sound = document.getElementById("audio");
+    sound.pause();
+}
 
 
 function startTimer(){
@@ -120,7 +130,6 @@ function checkQuestions(){
     }
 }
 
-
 function results(){
 checkQuestions();
 clearInterval(intervalId);
@@ -137,10 +146,11 @@ $('#retry').on('click', function(){
     $('.results').hide();
     $('#retry').hide();
     ResetGlobalVariables();
+    pauseAudio();
     });
 
 function ResetGlobalVariables(){
-    timer = 10;
+    timer = 60;
     timerOn = false;
     correct = 0;
     incorrect = 0;
