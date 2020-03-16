@@ -1,5 +1,5 @@
 //declare global variables, set up trivia questions and store in trivia object
-var timer = 60;
+var timer = 90;
 var timerOn = false;
 var intervalId;
 var correct = 0;
