@@ -1,5 +1,5 @@
 //declare global variables, set up trivia questions and store in trivia object
-var timer = 60;
+var timer = 90;
 var timerOn = false;
 var intervalId;
 var correct = 0;
@@ -64,24 +64,13 @@ $('.game').hide();
 $('#retry').hide();
 });
 
-//what happens after you click start
+
 $('#start').on('click', function(){
 showQuestions(); 
 $('.start').hide();
 $('.game').show();
 $('#retry').hide();
-playAudio();
 });
-
-function playAudio(){
-    var sound = document.getElementById("audio");
-    sound.play();
-}
-
-function pauseAudio(){
-    var sound = document.getElementById("audio");
-    sound.pause();
-}
 
 
 function startTimer(){
@@ -134,9 +123,9 @@ function results(){
 checkQuestions();
 clearInterval(intervalId);
 $('.game').hide();
-$('.results').append("<p>Pika Pika: " + correct + "</p>");
-$('.results').append("<p>Train Harder: " + incorrect + "</p>");
-$('.results').append("<p>Are you JigglyPuff?: " + unanswered + "</p>");
+$('.results').append("<p>Correct: " + correct + "</p>");
+$('.results').append("<p>Incorrect: " + incorrect + "</p>");
+$('.results').append("<p>Unanswered: " + unanswered + "</p>");
 $('#retry').show();
 }
 
